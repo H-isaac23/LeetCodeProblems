@@ -24,3 +24,24 @@ Constraints:
 
 0 <= s.length <= 5 * 104
 s consists of English letters, digits, symbols and spaces."""
+
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        seen = []
+        count = 0
+        y = 0
+        for x in s:
+            if x not in seen:
+                count += 1
+                seen.append(x)
+            else:
+                if count > y:
+                    y = count
+                    count = 0
+                    seen = []
+
+        return y
+
+# Submission Details
+# Runtime: 32ms
