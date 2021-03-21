@@ -26,3 +26,11 @@ Constraints:
 n == height.length
 2 <= n <= 105
 0 <= height[i] <= 104"""
+
+class BruteForceSolution:
+    def maxArea(self, height: List[int]) -> int:
+        area = 0
+        for i in range(len(height)-1):
+            for j in range(i+1, len(height)):
+                area = max(area, min(height[i], height[j])*(j-i))
+        return area
